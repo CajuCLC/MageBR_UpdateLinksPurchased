@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageBR_UpdateLinksPurchased>
+            <version>0.0.1</version>
+            <depends>
+                <Mage_Catalog/>
+            </depends>
+        </MageBR_UpdateLinksPurchased>
+    </modules>
+    <global>
+        <models>
+            <updatelinkspurchased>
+                <class>MageBR_UpdateLinksPurchased_Model</class>
+            </updatelinkspurchased>
+        </models>
+        <events>
+            <catalog_product_save_after>
+                <observers>
+                    <updatelinkspurchased>
+                       <type>singleton</type>
+                       <class>updatelinkspurchased/observer</class>
+                       <method>updateLinksPurchased</method>
+                    </updatelinkspurchased>
+                </observers>
+            </catalog_product_save_after>
+        </events>      
+    </global>
+</config>
